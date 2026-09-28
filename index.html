@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal website of Arsa Diwangsa">
+  <title>Arsa Diwangsa — About Me</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, Arial, sans-serif;
+      background: #0b0b0f;
+      color: #f5f5f5;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1100px, 90%);
+      margin: auto;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(15px);
+      background: rgba(11, 11, 15, 0.75);
+      border-bottom: 1px solid #24242d;
+    }
+
+    nav .container {
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 1.2rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .logo span {
+      color: #8b8bff;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    .hero {
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      padding: 80px 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: #8b8bff;
+      font-weight: 700;
+      margin-bottom: 15px;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(3.5rem, 9vw, 7rem);
+      line-height: 0.9;
+      letter-spacing: -5px;
+      margin-bottom: 25px;
+    }
+
+    .hero p {
+      max-width: 600px;
+      color: #aaa;
+      font-size: 1.15rem;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      padding: 12px 20px;
+      border-radius: 10px;
+      background: white;
+      color: #0b0b0f;
+      font-weight: 700;
+      transition: 0.2s;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button.secondary {
+      background: #191920;
+      color: white;
+      border: 1px solid #30303a;
+    }
+
+    .profile-card {
+      border: 1px solid #292933;
+      background: linear-gradient(145deg, #17171e, #0f0f14);
+      border-radius: 25px;
+      padding: 35px;
+      box-shadow: 0 25px 80px rgba(0,0,0,.35);
+    }
+
+    .avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: #24243a;
+      color: #a9a9ff;
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 25px;
+    }
+
+    .profile-card h2 {
+      margin-bottom: 5px;
+    }
+
+    .profile-card p {
+      color: #999;
+    }
+
+    section {
+      padding: 100px 0;
+      border-top: 1px solid #1e1e26;
+    }
+
+    .section-title {
+      font-size: 2.3rem;
+      letter-spacing: -1px;
+      margin-bottom: 40px;
+    }
+
+    .about {
+      max-width: 750px;
+      color: #aaa;
+      font-size: 1.1rem;
+    }
+
+    .timeline {
+      border-left: 1px solid #35353e;
+      padding-left: 30px;
+      display: grid;
+      gap: 35px;
+    }
+
+    .timeline-item {
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      width: 9px;
+      height: 9px;
+      background: #8b8bff;
+      border-radius: 50%;
+      left: -35px;
+      top: 8px;
+    }
+
+    .year {
+      color: #8b8bff;
+      font-size: .85rem;
+      font-weight: 700;
+    }
+
+    .timeline-item h3 {
+      margin: 5px 0;
+    }
+
+    .timeline-item p {
+      color: #888;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: #131319;
+      border: 1px solid #272731;
+      border-radius: 18px;
+      padding: 25px;
+      transition: .2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: #55556b;
+    }
+
+    .card .number {
+      color: #8b8bff;
+      font-size: .85rem;
+      font-weight: 800;
+    }
+
+    .card h3 {
+      margin: 12px 0 8px;
+    }
+
+    .card p {
+      color: #888;
+      font-size: .95rem;
+    }
+
+    .skills {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .skill {
+      padding: 9px 15px;
+      border: 1px solid #30303a;
+      background: #15151b;
+      border-radius: 100px;
+      color: #bbb;
+    }
+
+    footer {
+      padding: 50px 0;
+      color: #666;
+      text-align: center;
+      border-top: 1px solid #1e1e26;
+    }
+
+    @media (max-width: 800px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        letter-spacing: -3px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="container">
+      <div class="logo">ARSA<span>.</span></div>
+
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#skills">Skills</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <section class="hero">
+      <div class="container hero-grid">
+
+        <div>
+          <div class="eyebrow">Hello, I'm</div>
+
+          <h1>Arsa<br>Diwangsa.</h1>
+
+          <p>
+            Student, mathematics enthusiast, and aspiring programmer.
+            I like building things, learning new technology, and competing.
+          </p>
+
+          <div class="buttons">
+            <a class="button" href="#about">About Me</a>
+            <a class="button secondary" href="#achievements">My Achievements</a>
+          </div>
+        </div>
+
+        <div class="profile-card">
+          <div class="avatar">AD</div>
+          <h2>Arsa Diwangsa</h2>
+          <p>Student · Programmer · Mathematics</p>
+          <br>
+          <p>
+            Currently studying at Global Prestasi School
+            and exploring programming, mathematics, and business.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+
+        <p class="about">
+          I'm a student who enjoys mathematics, technology, programming,
+          and business. I'm interested in turning ideas into real projects
+          and continuously building my skills through competitions and
+          personal projects.
+        </p>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <h2 class="section-title">Education</h2>
+
+        <div class="timeline">
+
+          <div class="timeline-item">
+            <div class="year">2026 — Present</div>
+            <h3>Global Prestasi School</h3>
+            <p>Senior High School</p>
+          </div>
+
+          <div class="timeline-item">
+            <div class="year">2023 — 2026</div>
+            <h3>MTsN Dharmasraya</h3>
+            <p>Junior High School</p>
+          </div>
+
+          <div class="timeline-item">
+            <div class="year">2017 — 2023</div>
+            <h3>SDN 01 Koto Baru</h3>
+            <p>Elementary School</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="achievements">
+      <div class="container">
+        <h2 class="section-title">Achievements</h2>
+
+        <div class="cards">
+
+          <div class="card">
+            <div class="number">01</div>
+            <h3>TRSC</h3>
+            <p>2nd Place — TRSC competition.</p>
+          </div>
+
+          <div class="card">
+            <div class="number">02</div>
+            <h3>OMI</h3>
+            <p>3rd Place — Provincial level, OMI 2024 & 2025.</p>
+          </div>
+
+          <div class="card">
+            <div class="number">03</div>
+            <h3>UMC</h3>
+            <p>Finalist — UMC competition.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <h2 class="section-title">Interests & Skills</h2>
+
+        <div class="skills">
+          <div class="skill">Mathematics</div>
+          <div class="skill">Python</div>
+          <div class="skill">JavaScript</div>
+          <div class="skill">React</div>
+          <div class="skill">Next.js</div>
+          <div class="skill">Django</div>
+          <div class="skill">SQL</div>
+          <div class="skill">Business</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    © 2026 Arsa Diwangsa · arsadiwangsa.web.id
+  </footer>
+
+</body>
+</html>
